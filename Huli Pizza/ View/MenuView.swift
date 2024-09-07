@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(showsIndicators: true) {
+            ForEach(1...15, id: \.self) { item in
+                MenuRowView(item: item)                
+            }
+        }
     }
 }
 
