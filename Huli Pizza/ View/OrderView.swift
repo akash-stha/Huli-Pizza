@@ -13,7 +13,7 @@ struct OrderView: View {
     var body: some View {
         VStack {            
             Label {
-                Text(100.99, format: .currency(code: "CAD"))
+                Text(orders.isEmpty ? 00.00 : 100.99, format: .currency(code: "CAD"))
             } icon: {
                 Image(systemName: orders.isEmpty ? "cart" : "cart.circle.fill")
             }
@@ -21,15 +21,20 @@ struct OrderView: View {
             
             HStack {
                 Text("Order Pizza")
+                    .padding(.horizontal, 15)
                     .font(.title)
                 Spacer()
             }
             ScrollView{
                 ForEach(orders, id: \.self) { order in
                    OrderRowView(order: order)
+                        .padding(.horizontal, 15)
+                        .padding(.bottom, 5)
                 }
             }
         }
+        .padding()
+        .background(Color("Surf"))
     }
 }
 
