@@ -10,23 +10,26 @@ import SwiftUI
 struct ContentView: View {
     
     var orders: [Int] = [1,2,3,4,5]
-    var showOrders: Bool = false
+    var showOrders: Bool = true
     
     var body: some View {
-        VStack {
-            HeaderView()
-            if showOrders {
-                OrderView(orders: orders)
-            } else {
-                MenuItemView()
-                    .padding(.vertical)
-                    .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
-                MenuView()
+        ScrollView {
+            VStack {
+                HeaderView()
+                if showOrders {
+                    OrderView(orders: orders)
+                } else {
+                    MenuItemView()
+                        .padding(.vertical)
+                        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
+                    MenuView()
+                }
+                Spacer()
             }
-            Spacer()
+            .padding()
         }
-        .padding()
-        .background(.linearGradient(colors: [.cyan, Color("Surf"), Color("Sky"), .white], startPoint: .topLeading, endPoint: .bottom))
+        .ignoresSafeArea()
+        .background(.linearGradient(colors: [.cyan, Color("Surf"), Color("Sky")], startPoint: .topLeading, endPoint: .bottom))
     }
 }
 

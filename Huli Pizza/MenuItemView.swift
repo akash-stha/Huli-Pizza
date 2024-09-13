@@ -13,21 +13,26 @@ struct MenuItemView: View {
     
     var body: some View {
         VStack {
-            if let image = UIImage(named: "0_lg") {
-                Image(uiImage: image)
-                    .cornerRadius(10)
-            } else {
-                Image("surfboard_sm")
-            }
-            VStack(alignment: .leading) {
+            HStack {
                 Text("Margherita")
                     .font(.title)
                     .fontWeight(.semibold)
-                    .foregroundStyle(Color("Surf"))
+                    .foregroundStyle(.ultraThickMaterial)
                     .padding(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.linearGradient(colors: [Color("Surf"), Color("Sky").opacity(0.3)], startPoint: .trailing, endPoint: .leading), in: Capsule())
-                
+//                    .frame(maxWidth: .infinity, alignment: .leading)
+                if let image = UIImage(named: "0x_lg") {
+                    Image(uiImage: image)
+                        .cornerRadius(10)
+                        .padding(.vertical, 5)
+                } else {
+                    Image("surfboard_sm")
+                        .rotationEffect(Angle(degrees: 180))
+                }
+            }
+            .background(.linearGradient(colors: [Color("Surf"), Color("Sky").opacity(1)], startPoint: .leading, endPoint: .trailing), in: Capsule())
+            .shadow(color: .teal, radius: 7, x: 4, y: 4)
+
+            VStack(alignment: .leading) {
                 // Collapsible view with arrow on the trailing side of the text
                  HStack {
                      Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dignissim egestas imperdiet. Maecenas at neque eget augue sollicitudin bibendum. Quisque convallis ante eget dui lacinia, id ultricies lectus porttitor. Sed vel rutrum elit, sed vehicula libero. In hac habitasse platea dictumst. Suspendisse quis malesuada dolor. Suspendisse potenti. Mauris tincidunt libero.")

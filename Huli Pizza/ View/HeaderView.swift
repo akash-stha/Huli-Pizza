@@ -16,12 +16,13 @@ struct HeaderView: View {
             Text("Huli Pizza Company")
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .font(.custom("Georgia", size: 30, relativeTo: .title))
-                .foregroundStyle(Color("Surf"))
+                .foregroundStyle(.thickMaterial)
                 .padding(.horizontal, 8)
-                .background(.linearGradient(colors: [Color("Sky"), .white.opacity(0.1)], startPoint: .trailing, endPoint: .leading))
+                .background(.linearGradient(colors: [Color("Sky").opacity(0.7), Color("Sky").opacity(0.3)], startPoint: .trailing, endPoint: .leading))
         }
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .frame(height: 150)
+        .padding(.top, 50)
     }
 
 }
